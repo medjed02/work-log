@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <center>
+        <h3>Works log</h3>
+        {% for item in data %}
+            <table>
+                <h3>Action #{{loop.index}}</h3>
+                <tr><th>Time of activity</th><th>Team leader</th><th>Duration</th><th>List of collaborators</th>
+                    <th>Is finished</th></tr>
+                <tr>
+                    <td bgcolor="#c05fed">{{item['name']}}</td>
+                    <td bgcolor="#c05fed">{{item['leader']}}</td>
+                    <td bgcolor="#c05fed">{{item['size']}}</td>
+                    <td bgcolor="#c05fed">{{item['collabs']}}</td>
+                    {% if item['is_finished'] %}
+                        <td bgcolor="#c05fed">Is finished</td>
+                    {% else %}
+                        <td bgcolor="#ed5f6f">Is not finished</td>
+                    {% endif %}
+                </tr>
+            </table>
+        {% endfor %}
+    </center>
+{% endblock %}
